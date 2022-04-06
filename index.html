@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="description" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.4/Chart.js"></script>
+	<title>ACME</title>
+</head>
+<body>
+<!-- search box -->
+  <header>
+  <div class="header_div">
+    <div class="navbar" onclick="nav()">
+       <div class="one"></div>
+       <div class="two"></div>
+       <div class="three"></div>
+    </div>
+  	<img src="search.png"><input type="text" class="search" name="search" placeholder="Search transactions, invoices or help">
+    <div class="profiles_user">
+      <img src="bell.png" id="bell" onclick="bell()">
+      <div style="display:flex;cursor: pointer;margin-right: -46px;" onclick="Show_validiation()">
+      <p class="name" style="width: 65px;padding-top: 20px;display: block;">John Doe</p>
+      <img class="arrow" src="arrow.png" style="padding: 4px;margin-left: -2px;display: block;"></div>
+        <img src="profile-pic-01.jpg" onclick="Show_validiation()">
+    </div>
+  </div>
+
+  <div class="message" id="message" style="display:none;">
+    <ul>
+      <li class="message_hover" style="display:flex;margin-left: -16px;cursor: pointer;"><img src="profile-pic-02.jpg" style="border-radius: 100px;width: 11%;"><div class="name_div">
+            <div class="name_div" style="margin-top: -25px;">
+              <p style="margin-bottom: 0px;margin-top: 30px;margin-left: 30px;color:#43425D;opacity:100%;font-size: 16px;">Bavid Kames</p>
+              <p style="margin-top: -18px;margin-left: 281px;opacity: 50%;color: #43425D;font-size: 14px;">2 min ago</p>
+            </div style="display: flex;">
+              <p style="margin-top: 0px;margin-left: 30px;opacity: 50%;color: #43425D;font-size: 14px;">Assigned you on the call with Sara</p>
+            </div></li><br>
+      <li class="message_hover" style="display:flex;margin-left: -16px;cursor: pointer;"><img src="profile-pic-06.jpg" style="border-radius: 100px;width: 11%;"><div class="name_div">
+              <p style="margin-bottom: -16px;margin-top: 5px;margin-left: 30px;color:#43425D;opacity:100%;font-size: 16px;">Alexa Marry</p>
+              <div style="display: flex;">
+              <p style="margin-top: -2px;margin-left: 281px;opacity: 50%;color: #43425D;font-size: 14px;">2 min ago</p>
+            </div>
+              <p style="margin-top: 1px;margin-left: 30px;opacity: 50%;color: #43425D;font-size: 14px;">Marked the task New UI as done</p>
+            </div></li><br>
+      <li class="message_hover" style="display:flex;margin-left: -16px;cursor: pointer;"><img src="profile-pic-05.jpg" style="border-radius: 100px;width: 11%;"><div class="name_div">
+
+        <div style="display: flex;">
+              <p style="margin-bottom: -16px;margin-top: 5px;margin-left: 30px;color:#43425D;opacity:100%;font-size: 16px;">Eva Maria</p>
+              <p style="margin-top: 7px;margin-left: 185px;opacity: 50%;color: #43425D;font-size: 14px;">2 min ago</p>
+            </div>
+              <p style="margin-top: 1px;margin-left: 30px;opacity: 50%;color: #43425D;font-size: 14px;">Added a new comment on Sales task</p>
+            </div>
+          </li>
+    </ul>
+    <p style="border-bottom: 2px solid #F5F6FA;width: 90%;margin-left: 5px;margin-top: 22px;margin-bottom: 15px;"></p>
+    <center><p style="color: #3B86FF;padding-right: 32px;cursor: pointer;">Show More</p></center>
+  </div>
+
+  <div id="logout" style="display: none;">
+    <ul>
+      <li style="padding-left: 3px;"><img src="user.png" style="margin-right: 15px;">My Profile</li>
+      <li><img src="bill.png" style="margin-right: 15px;">Billing</li>
+      <li style="padding-left: 3px;"><img src="logout.png" style="margin-right: 15px;">Logout</li>
+    </ul>
+  </div>
+
+  <nav class="hamburger_nav" id="hum">
+
+     <p style="margin-top: -43px;margin-left: -45px;margin-right: -40px;font-size: 18px;padding-left: 24px;margin-bottom: 22px;padding-top: 21px;padding-bottom: 21px;background: #3C3B54;">A C M E<img src="close.png" style="width:8%;margin-left: 60%;cursor: pointer;" onclick="closevalidate()"></p>
+    <ul>
+      <li style="margin-left: -25px;"><img src="home.png" style="margin-bottom: -7px; margin-right: 15px;">Home</li>
+      <li style="margin-left: -25px;"><img src="dashboard.png" style="margin-bottom: -7px; margin-right: 15px;">Dashboard</li>
+      <li style="margin-left: -25px;"><img src="inbox.png" style="margin-bottom: -7px; margin-right: 15px;">Inbox</li>
+      <li style="margin-left: -27px;"><img src="product.png" style="margin-bottom: -7px; margin-right: 15px;">Products</li>
+      <li style="margin-left: -25px;"><img src="admin.png" style="margin-bottom: -7px; margin-right: 15px;">Admin</li>
+    </ul>
+    
+  </nav>
+
+  <script>
+  function Show_validiation(){
+    var display = document.getElementById('logout');
+    if(display.style.display==="none"){
+        display.style.display = "block";
+    }
+    else{
+      display.style.display = "none";
+    }
+    // document.getElementById('logout').style.transition= "0.5s";
+  // alert('hi');
+}
+
+function bell(){
+    var display = document.getElementById('message');
+    if(display.style.display==="none"){
+        display.style.display = "block";
+    }
+    else{
+      display.style.display = "none";
+    }
+    // document.getElementById('logout').style.transition= "0.5s";
+  // alert('hi');
+}
+  </script>
+
+<script type="text/javascript">
+  function closevalidate(){
+    document.getElementById('hum').style.display="none";
+    document.getElementById('hum').style.transition= "0.5s";
+  }
+</script>
+
+  <script type="text/javascript">
+    function nav(){
+      document.getElementById('hum').style.display="block";
+      document.getElementById('hum').style.transition= "0.5s ease 0.5s";
+    }
+</script>
+  
+  </header>
+  <div class="container">
+    <div class="over_btn">
+  	<p>Overview</p>
+    <button id="btn" style="cursor: pointer;">Add Funds<img src="plus.png"></button>
+  </div>
+  	<div class="div_container">
+  	   <div class="static_div">
+        <div class="static_flex" style="display:flex;">
+  	   	   <p>Statistics</p>
+           <select style="border: none;margin-top: -6px;outline: none;background: transparent;margin-left: 46%;color: #4D4F5C;">
+             <option>Last 6 months</option>
+           </select>
+         </div>
+  <canvas id="chart"></canvas>
+  <div class="sale" style="display: flex;height: 0px; margin-left: 90px; margin-top: 16px;">
+           <p style="border: 1px solid #B5B3FB;width: 0px;border-radius: 30px;padding: 4px;background: #B5B3FB;">
+             <p style="color: #43425D;font-size: 14px;padding-left: 12px;margin-top: -24px;">Products sold</p>
+           </p>
+           <p style="border: 1px solid #80E2FF;width: 0px;border-radius: 30px;padding: 4px;background: #80E2FF;">
+             <p style="color: #43425D;font-size: 14px;padding-left: 12px;margin-top: -24px;">Total views</p>
+           </p>
+         </div>
+  <canvas style="width: 300px; height: 200px"></canvas>
+
+<script type="text/javascript">
+var canvas = document.getElementById('chart');
+var ctx = canvas.getContext('2d');
+ctx.canvas.parentNode.style.width = "400px";
+var gradient = ctx.createLinearGradient(0, 0, 0, 200);
+gradient.addColorStop(0, '#B0EAFF');   
+gradient.addColorStop(1, '#FFFFFF00');
+
+var gradients = ctx.createLinearGradient(0, 0, 0, 200);
+gradients.addColorStop(0, '#B5B3FB');   
+gradients.addColorStop(1, '#FFFFFF00');
+
+var xValues = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"];
+
+
+const data = {
+  labels: xValues,
+  datasets: [{
+      label: '',
+      data: [19, 8, 18, 12, 17, 10],
+      backgroundColor : gradient,
+      borderColor: "#B0EAFF",
+    }, {
+      label: '',
+      data: [10, 11, 15, 18, 15, 12],
+      backgroundColor : gradients,
+      borderColor: "#B5B3FB"
+    },]
+};
+
+var options = {
+  legend: {
+ labels: {
+   boxWidth: 0,
+ }
+}
+};
+
+Chart.Line('chart', {
+  options: options,
+  data: data
+});
+</script>
+  	   </div>
+  	   <div class="sales_div">
+  	   	   <p>Sales Distribution</p>
+           <center><canvas id="myChart" style="width:300px !important;max-width:300px;margin-top: -20px;"></canvas></center>
+           <script>
+var xValues = ["France", "Italy", "Japan", "Canada"];
+var yValues = [90, 55, 60, 60];
+var barColors = ["#80E2FF","#F49FA8","#FFDF94","#B5B3FB"];
+
+new Chart("myChart", {
+  type: "doughnut",
+  data: {
+    datasets: [{
+      backgroundColor: barColors,
+      data: yValues,
+      borderWidth: 0
+    }]
+  },
+  options: {
+    rotation: 180,
+    cutoutPercentage: 55,
+    animation: {
+      animationScale: true
+    }
+  }
+});
+</script>
+         <p style="border-bottom: 2px solid #F5F6FA;width: 90%;margin-left: 20px !important;margin-top: 15px;margin-bottom: 15px;"></p>
+         <div class="countries1" style="display: flex;height: 0px; margin-left: 54px;">
+           <p style="border: 1px solid #80E2FF;width: 0px;border-radius: 30px;padding: 4px;background: #80E2FF;">
+             <p style="color: #43425D;font-size: 14px;padding-left: 12px;margin-top: -24px;">France</p><p style="color: #43425D;opacity: 50%;font-size: 14px;padding-left: 12px;margin-top: -24px;">4260 Sales</p>
+           </p>
+           <p style="border: 1px solid #F49FA8;width: 0px;border-radius: 30px;padding: 4px;background: #F49FA8;">
+             <p style="color: #43425D;font-size: 14px;padding-left: 12px;margin-top: -24px;">Italy</p><p style="color: #43425D;opacity: 50%;font-size: 14px;padding-left: 12px;margin-top: -24px;">3970 Sales</p>
+           </p>
+         </div>
+         <div class="countries2" style="display: flex;height: 0px; margin-left: 45px;margin-top: 25px;">
+           <p style="border: 1px solid #FFDF94;width: 0px;border-radius: 30px;padding: 4px;background: #FFDF94;">
+             <p style="color: #43425D;font-size: 14px;padding-left: 12px;margin-top: -24px;">Japan</p><p style="color: #43425D;opacity: 50%;font-size: 14px;padding-left: 12px;margin-top: -24px;">4260 Sales</p>
+           </p>
+           <p style="border: 1px solid #FFDF94;width: 0px;border-radius: 30px;padding: 4px;background: #FFDF94;">
+             <p style="color: #43425D;font-size: 14px;padding-left: 12px;margin-top: -24px;">Canada</p><p style="color: #43425D;opacity: 50%;font-size: 14px;padding-left: 12px;margin-top: -24px;">3970 Sales</p>
+           </p>
+         </div>
+  	   </div>
+  	   <div class="profile">
+  	   	   <img src="profile-pic-01.jpg">
+           <p>Nick Herasimenka</p>
+           <p class="states">United States</p>
+           <div class="icon_div">
+             <i class="fa fa-twitter"></i>
+             <i class="fa fa-facebook" style="border: 1px solid #556575;background: #556575;color: white;width: 18px;   padding-left: 4px;font-size: 15px;border-radius: 20px;"></i>
+             <i class="fa fa-linkedin-square"></i>
+             <i class="fa fa-whatsapp"></i>
+         </div>
+         <p style="border-bottom: 2px solid #F5F6FA;width: 90%;margin-left: 20px !important;margin-top: 15px;margin-bottom: 15px;"></p>
+           <div class="user_div">
+              <p style="display: flex;justify-content: space-between;" class="user_heading">Our Users<img src="threedots.png" style="margin-left: 260px;width: 15px;margin-top: 1px;height: 17px;" id="threedots"></p>
+            </div>
+           <div class="user_div">
+              <img src="profile-pic-03.jpg">
+              <div class="name_div">
+              <p style="margin-bottom: -16px;margin-top: 5px;margin-left: 30px;color:#43425D;opacity:100%;font-size: 16px;">Drew James</p>
+              <p style="margin-top: 18px;margin-left: 32px;opacity: 50%;color: #43425D;font-size: 14px;">United States</p>
+            </div>
+            <p class="mobile_num" style="font-size: 14px; opacity: 50%; color: #43425D; padding-left: 64px; padding-top: 16px;">Mobile : 8715674877</p>
+            </div>
+           <div class="user_div">
+              <img src="profile-pic-02.jpg">
+              <div class="name_div">
+              <p style="margin-bottom: -16px;margin-top: 5px;margin-left: 30px;color:#43425D;opacity:100%;font-size: 16px;">Bavid Kames</p>
+              <p style="margin-top: 18px;margin-left: 32px;opacity: 50%;color: #43425D;font-size: 14px;">United States</p>
+            </div>
+            <p class="mobile_num"  style="font-size: 14px; opacity: 50%; color: #43425D; padding-left: 59px; padding-top: 16px;">Mobile : 8715674877</p>
+            </div>
+           <div class="user_div">
+              <img src="profile-pic-04.jpg">
+              <div class="name_div">
+              <p style="margin-bottom: -16px;margin-top: 5px;margin-left: 30px;color:#43425D;opacity:100%;font-size: 16px;">Lavid Emes</p>
+              <p style="margin-top: 18px;margin-left: 32px;opacity: 50%;color: #43425D;font-size: 14px;">United States</p>
+            </div>
+            </div>
+            <p style="font-size: 14px; opacity: 50%; color: #43425D; padding-left: 58%; margin-top: -35px;">Mobile : 8715674877</p>
+           </div>
+  	   </div>
+  <div class="div_container">
+  <div class="media_div">
+  	   <p>Referrer</p>
+    <div>
+       <table>
+        <thead>
+         <tr>
+           <th>Location</th>
+           <th>Views</th>
+           <th>Sales</th>
+           <th>Conversion</th>
+           <th>Total</th>
+         </tr>
+       </thead>
+
+        <tbody>
+         <tr>
+           <td>google.com</td>
+           <td>3746</td>
+           <td>752</td>
+           <td>43%</td>
+           <td>$19,291</td>
+         </tr>
+
+         <tr>
+           <td>facebook.com</td>
+           <td>8126</td>
+           <td>728</td>
+           <td>32%</td>
+           <td>32%</td>
+         </tr>
+
+         <tr>
+           <td>twitter.com</td>
+           <td>8836</td>
+           <td>694</td>
+           <td>28%</td>
+           <td>$16,218</td>
+         </tr>
+
+         <tr>
+           <td>Direct, email, IM</td>
+           <td>1173</td>
+           <td>645</td>
+           <td>24%</td>
+           <td>$14,421</td>
+         </tr>
+
+         <tr>
+           <td>linkedin.com</td>
+           <td>2739</td>
+           <td>539</td>
+           <td>20%</td>
+           <td>$12,370</td>
+         </tr>
+
+         <tr>
+           <td>instagram.com</td>
+           <td>2739</td>
+           <td>539</td>
+           <td>20%</td>
+           <td>$12,370</td>
+         </tr>
+
+         <tr style="border: none;">
+           <td style="color: #3B86FF;cursor: pointer;">Show More</td>
+           <td></td>
+           <td></td>
+           <td></td>
+           <td></td>
+         </tr>
+        </tbody>
+       </table>
+    </div>
+  </div>
+  <div class="video_div">
+    <p style="display: flex;justify-content: space-between;">Product Video <img src="threedots.png" style="padding-right: 25px;width: 40px;"></p>
+       <img src="video thumbnail.png">
+  </div>
+</div>
+</div>
+
+</body>
+</html>
