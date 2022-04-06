@@ -457,11 +457,15 @@ tr{
         .message{
                 margin-left: -4%;
                 width: 110%;
+		height: 42%;
         }
         #logout{
             width: 50%;
             margin-left: 45%;
         }
+	.message_hover img {
+    height: 40px;
+}
         .video_div{
                 width: 112%;
                 margin-left: -18px;
